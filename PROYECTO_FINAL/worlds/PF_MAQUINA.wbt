@@ -1,0 +1,403 @@
+#VRML_SIM R2025a utf8
+
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/objects/backgrounds/protos/TexturedBackground.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/objects/backgrounds/protos/TexturedBackgroundLight.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/objects/floors/protos/UnevenTerrain.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/appearances/protos/SandyGround.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/vehicles/protos/abstract/GenericTireAppearance.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/appearances/protos/BrushedAluminium.proto"
+
+WorldInfo {
+  basicTimeStep 16
+}
+Viewpoint {
+  orientation -0.01841848443159404 0.05118109497116798 0.9985195315810278 3.217413204260899
+  position 1.6263416348927073 33.20683962430265 3.359724186084928
+}
+TexturedBackground {
+}
+TexturedBackgroundLight {
+}
+Solid {
+  translation 0 30.07 3.23
+  children [
+    Shape {
+      appearance BrushedAluminium {
+      }
+      geometry Capsule {
+        height 0.1
+        radius 0.05
+      }
+    }
+  ]
+  name "BASURA1"
+  boundingObject Capsule {
+    height 0.1
+    radius 0.05
+    subdivision 16
+  }
+  physics Physics {
+  }
+}
+DEF TRACTOR Robot {
+  translation 0.0291631 31.4566 3.50408
+  rotation -0.7821357615085797 0.6229924914490858 -0.012000256974535935 0.05139924932011282
+  children [
+    Solid {
+      translation 0 1.38935 -0.0720118
+      rotation 1 0 0 0.049999999999996846
+      children [
+        DEF LLANTA_LIMPIADORA_DER HingeJoint {
+          jointParameters HingeJointParameters {
+            position -13.09022398613071
+            axis -1 0 0
+            anchor -0.31 0.25 -0.17
+          }
+          device [
+            RotationalMotor {
+              name "LLMD"
+            }
+          ]
+          endPoint Solid {
+            translation -0.31003906591223424 0.24991975957477308 -0.1696895044798432
+            rotation 0.999999995995363 -2.612659065973346e-05 8.559600092869637e-05 0.5238533738274799
+            children [
+              Transform {
+                scale 1.8 2 2
+                children [
+                  Shape {
+                    appearance GenericTireAppearance {
+                    }
+                    geometry Mesh {
+                      url [
+                        "../protos/LLTDM.obj"
+                      ]
+                    }
+                  }
+                ]
+              }
+            ]
+            name "solid(2)"
+            boundingObject Pose {
+              translation 0 -0.004 0
+              rotation 0 1 0 1.5708
+              children [
+                Cylinder {
+                  height 0.1
+                  radius 0.17
+                }
+              ]
+            }
+            physics Physics {
+            }
+          }
+        }
+        DEF LLANTA_LIMPIADORA_IZQ HingeJoint {
+          jointParameters HingeJointParameters {
+            position -13.09022398613071
+            axis -1 0 0
+            anchor 0.30999898057797326 0.2690073464423435 -0.15906898974902955
+          }
+          device [
+            RotationalMotor {
+              name "LLMI"
+            }
+          ]
+          endPoint Solid {
+            translation 0.309999 0.26936090494405696 -0.1593683584063787
+            rotation -0.9999999834114432 0.000115772052090344 0.00014061986097212354 5.759331925070557
+            children [
+              Transform {
+                translation 0 -0.02 0
+                scale 1.8 2 2
+                children [
+                  Shape {
+                    appearance GenericTireAppearance {
+                    }
+                    geometry Mesh {
+                      url [
+                        "../protos/LLTIM.obj"
+                      ]
+                    }
+                  }
+                ]
+              }
+            ]
+            name "solid(1)"
+            boundingObject Pose {
+              translation 0 -0.02 0
+              rotation 0 1 0 1.5708
+              children [
+                Cylinder {
+                  height 0.1
+                  radius 0.16
+                }
+              ]
+            }
+            physics Physics {
+            }
+          }
+        }
+        DEF ROTOR_MECANISMO HingeJoint {
+          jointParameters HingeJointParameters {
+            position 461.1611128503806
+            axis -1 0 0
+            anchor 0.00999382 -0.51698 -0.2318
+          }
+          device [
+            RotationalMotor {
+              name "ROTOR"
+            }
+          ]
+          endPoint Solid {
+            translation 0.00999382 -0.5255222724982016 -0.2261646093483114
+            rotation -1 0 0 0
+            children [
+              Transform {
+                rotation 1 0 0 1.5708
+                scale 2.5 1.5 1.5
+                children [
+                  Shape {
+                    appearance BrushedAluminium {
+                    }
+                    geometry Mesh {
+                      url [
+                        "../protos/ROTOR.obj"
+                      ]
+                    }
+                  }
+                ]
+              }
+            ]
+            boundingObject Pose {
+              rotation 0 1 0 1.5708
+              children [
+                Cylinder {
+                  height 0.6
+                  radius 0.04
+                }
+              ]
+            }
+            physics Physics {
+            }
+          }
+        }
+        Shape {
+          appearance PBRAppearance {
+            baseColor 1 0 1
+          }
+          geometry Mesh {
+            url [
+              "../protos/limpiadora2.obj"
+            ]
+          }
+        }
+      ]
+      name "MAQUINA_TRASERA"
+      boundingObject Mesh {
+        url [
+          "../protos/limpiadora.obj"
+        ]
+      }
+      physics Physics {
+      }
+    }
+    DEF LLANTA_TRAS_DER HingeJoint {
+      jointParameters HingeJointParameters {
+        position 11.0617244401416
+        anchor -0.26 0.4 -0.18
+      }
+      device [
+        RotationalMotor {
+          name "motor_tra_der"
+        }
+      ]
+      endPoint Solid {
+        translation -0.27997642830513875 0.40043555556453114 -0.17946784468073673
+        rotation -0.9999999997566112 -1.9230328953477177e-05 1.0815346379250215e-05 1.5046461745163784
+        children [
+          Shape {
+            appearance GenericTireAppearance {
+            }
+            geometry Mesh {
+              url [
+                "../protos/LLANTADT.obj"
+              ]
+            }
+          }
+        ]
+        name "solid(3)"
+        boundingObject Pose {
+          rotation 0 -1 0 1.5708
+          children [
+            Cylinder {
+              height 0.1
+              radius 0.24
+            }
+          ]
+        }
+        physics Physics {
+        }
+      }
+    }
+    DEF LLANTA_TRAS_IZQ HingeJoint {
+      jointParameters HingeJointParameters {
+        position 10.896346025005078
+        anchor 0.28 0.4 -0.18
+      }
+      device [
+        RotationalMotor {
+          name "motor_tra_izq"
+        }
+      ]
+      endPoint Solid {
+        translation 0.27757298050434726 0.40048851964066046 -0.17979412272833709
+        rotation -0.9999998583420437 0.00041314561687944094 -0.0003355988548370593 1.6699486039052553
+        children [
+          Shape {
+            appearance GenericTireAppearance {
+            }
+            geometry Mesh {
+              url [
+                "../protos/LLANTAIT.obj"
+              ]
+            }
+          }
+        ]
+        name "solid(2)"
+        boundingObject Pose {
+          rotation 0 -1 0 1.5708
+          children [
+            Cylinder {
+              height 0.1
+              radius 0.24
+            }
+          ]
+        }
+        physics Physics {
+        }
+      }
+    }
+    DEF DEF_LLANTA_DEL_DER HingeJoint {
+      jointParameters HingeJointParameters {
+        position 15.25662872718273
+        anchor -0.3 -0.28 -0.23
+      }
+      device [
+        RotationalMotor {
+          name "motor_del_der"
+        }
+      ]
+      endPoint Solid {
+        translation -0.3000669082687298 -0.2802494273085827 -0.22950048556320723
+        rotation 0.9999999998173873 1.5925586477704194e-05 1.0564140008709095e-05 2.69025811284101
+        children [
+          Shape {
+            appearance GenericTireAppearance {
+            }
+            geometry Mesh {
+              url [
+                "../protos/LLANTADD.obj"
+              ]
+            }
+          }
+        ]
+        name "solid(1)"
+        boundingObject Pose {
+          rotation 0 -1 0 1.5708
+          children [
+            Cylinder {
+              height 0.1
+              radius 0.18
+            }
+          ]
+        }
+        physics Physics {
+        }
+      }
+    }
+    DEF LLANTA_DEL_IZQ HingeJoint {
+      jointParameters HingeJointParameters {
+        position 15.211251678683444
+        anchor 0.29 -0.28 -0.23
+      }
+      device [
+        RotationalMotor {
+          name "motor_del_izq"
+        }
+      ]
+      endPoint Solid {
+        translation 0.289970328893312 -0.2802611364423697 -0.22926638119028553
+        rotation 0.9999999998096124 1.396401047663979e-05 1.3630169092586235e-05 2.6448810643622913
+        children [
+          Shape {
+            appearance GenericTireAppearance {
+            }
+            geometry Mesh {
+              url [
+                "../protos/LLANTADI.obj"
+              ]
+            }
+          }
+        ]
+        boundingObject Pose {
+          rotation 0 -1 0 1.5708
+          children [
+            Cylinder {
+              height 0.1
+              radius 0.18
+            }
+          ]
+        }
+        physics Physics {
+        }
+      }
+    }
+    Shape {
+      appearance Appearance {
+        texture ImageTexture {
+          url [
+            "../texturas/Texure Tractor.jpg"
+          ]
+        }
+      }
+      geometry Mesh {
+        url [
+          "../protos/CHASIS2.obj"
+        ]
+      }
+    }
+  ]
+  boundingObject Box {
+    size 0.3 1.1 0.1
+  }
+  physics Physics {
+  }
+  controller "C_maquina1"
+  supervisor TRUE
+}
+UnevenTerrain {
+  name "PLAYA"
+  size 100 100 5
+  xDimension 100
+  yDimension 100
+  appearance SandyGround {
+    textureTransform TextureTransform {
+      scale 50 50
+    }
+    IBLStrength 0
+  }
+  perlinNOctaves 10
+}
+UnevenTerrain {
+  translation 29 0 1.56
+  name "MAR"
+  size 40 97 3.2
+  appearance Appearance {
+    texture ImageTexture {
+      url [
+        "../../../Desktop/wesley-tingey-9-OCsKoyQlk-unsplash (1).jpg"
+      ]
+    }
+  }
+}
